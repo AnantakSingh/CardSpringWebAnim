@@ -9,6 +9,7 @@ let xStart, xEnd, yStart, yEnd;
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
     canvas.position(0, 0, 'fixed');
+    canvas.id('background-canvas');
     canvas.style('z-index', '-1');
     buildGrids();
 }
@@ -60,10 +61,10 @@ function draw() {
     // but we can try to match the visual feel.
     // CSS: radial-gradient(circle, #444444 10%, #000000 100%);
     // This means from 0% to 10% it's #444444, then interpolates to #000000 at 100%.
-
-    gradient.addColorStop(0.0, '#444444');
-    gradient.addColorStop(0.1, '#444444');
-    gradient.addColorStop(1.0, '#000000');
+    gradient.addColorStop(0.0, '#bebebeff');
+    gradient.addColorStop(0.4, '#bebebeff');
+    gradient.addColorStop(0.9, '#808080ff');
+    gradient.addColorStop(1.0, '#535353ff');
 
     drawingContext.fillStyle = gradient;
     rect(0, 0, width, height);
@@ -80,14 +81,14 @@ function draw() {
         let baseSize = lerp(16, 8, t);
 
         noStroke();
-        fill(200, 40 * layer);
+        fill(2, 40 * layer);
 
         for (let p of layers[layer]) {
 
             let d = dist(mouseX, mouseY, p.x, p.y);
 
             // size based on distance
-            let sizeFactor = map(d, 0, width * 0.5, 1.2, 0.4);
+            let sizeFactor = map(d, 0, width * 0.2, 2.2, 0.8);
             sizeFactor = constrain(sizeFactor, 0.4, 5.0);
             let finalSize = baseSize * sizeFactor * sizeStrength;
 
@@ -111,3 +112,4 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     buildGrids();
 }
+
