@@ -81,14 +81,14 @@ function draw() {
         let baseSize = lerp(16, 8, t);
 
         noStroke();
-        fill(2, 40 * layer);
+        fill(196,182,178, 40 * layer);
 
         for (let p of layers[layer]) {
 
             let d = dist(mouseX, mouseY, p.x, p.y);
 
             // size based on distance
-            let sizeFactor = map(d, 0, width * 0.2, 2.2, 0.8);
+            let sizeFactor = map(d, 0, width * 0.16, 1.6, 0.6);
             sizeFactor = constrain(sizeFactor, 0.4, 5.0);
             let finalSize = baseSize * sizeFactor * sizeStrength;
 
@@ -112,4 +112,5 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     buildGrids();
 }
+
 
