@@ -61,10 +61,10 @@ function draw() {
     // but we can try to match the visual feel.
     // CSS: radial-gradient(circle, #444444 10%, #000000 100%);
     // This means from 0% to 10% it's #444444, then interpolates to #000000 at 100%.
-    gradient.addColorStop(0.0, '#242424ff');
-    gradient.addColorStop(0.4, '#232323ff');
-    gradient.addColorStop(0.9, '#0f0f0fff');
-    gradient.addColorStop(1.0, '#090909ff');
+    gradient.addColorStop(0.0, '#1c1c1cff');
+    gradient.addColorStop(0.4, '#141414ff');
+    gradient.addColorStop(0.9, '#0c0c0cff');
+    gradient.addColorStop(1.0, '#000000ff');
 
     drawingContext.fillStyle = gradient;
     rect(0, 0, width, height);
@@ -112,6 +112,7 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     buildGrids();
 }
+
 
 
 
